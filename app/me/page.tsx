@@ -17,11 +17,14 @@ const Me: NextPage = async () => {
           </p>
         </div> :
         <div className="space-y-4">
+          <h1>User Logged in!</h1>
           {user.name && <h2 className="text-2xl">Welcome: {user.name}</h2>}
           {user.givenName && <h3 className="text-2xl">Your First Name: {user.givenName}</h3>}
           {user.familyName && <h3 className="text-2xl">Your Last Name: {user.familyName}</h3>}
           <h3 className="text-2xl">Your Email: {user.email}</h3>
           {user.username && <h3 className="text-2xl">Your Username: {user.username}</h3>}
+          <hr></hr>
+          <a href="/logout">Logout</a>
         </div>
       }
     </Container>
