@@ -17,3 +17,8 @@ export const getUser = async (): Promise<{ user: User | null }> => {
     user: JSON.parse(user)
   }
 }
+
+export const logOutUser = async (): Promise<void> => {
+  cookies().delete("user");
+  cookies().delete("accessToken");
+}

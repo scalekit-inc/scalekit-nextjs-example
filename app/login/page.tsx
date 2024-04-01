@@ -8,11 +8,7 @@ import { getAuthorizationUrl } from '../actions/login';
 
 const Login: NextPage = () => {
   const router = useRouter();
-  const [state, setState] = useState({
-    email: "",
-    organization_id: "",
-    connection_id: ""
-  });
+  const [state, setState] = useState({ email: "", organizationId: "", connectionId: "" });
 
   const handleChange = (e: FormEvent<HTMLInputElement>): void => {
     const { name, value } = e.currentTarget;
@@ -22,19 +18,9 @@ const Login: NextPage = () => {
     });
   };
 
-  const loginViaDomain = async (event: FormEvent) => {
+  const initiateAuth = async (event: FormEvent) => {
     event.preventDefault();
-    const url = await getAuthorizationUrl({ "email": state.email });
-    router.push(url);
-  };
-  const loginViaOrgId = async (event: FormEvent) => {
-    event.preventDefault();
-    const url = await getAuthorizationUrl({ "organization_id": state.organization_id });
-    router.push(url);
-  };
-  const loginViaConnectionId = async (event: FormEvent) => {
-    event.preventDefault();
-    const url = await getAuthorizationUrl({ "connection_id": state.connection_id });
+    const url = await getAuthorizationUrl({ ...state });
     router.push(url);
   };
 
@@ -49,19 +35,19 @@ const Login: NextPage = () => {
           </p>
           <div className="mt-3 mx-auto w-full max-w-sm">
             <div className="bg-white py-6 px-6 rounded">
-              <form className="space-y-6" onSubmit={loginViaOrgId}>
+              <form className="space-y-6" onSubmit={initiateAuth}>
                 <div>
-                  <label htmlFor="organization_id" className="block text-sm text-gray-600">
+                  <label htmlFor="organizationId" className="block text-sm text-gray-600">
                     Organization ID
                   </label>
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="organization_id"
-                      id="organization_id"
+                      name="organizationId"
+                      id="organizationId"
                       placeholder="org_1234412"
                       className="text-black block w-full border border-gray-300 rounded placeholder-gray-400 focus:outline-none focus:ring-indigo-500"
-                      value={state.organization_id}
+                      value={state.organizationId}
                       onChange={handleChange}
                       required
                     />
@@ -84,23 +70,23 @@ const Login: NextPage = () => {
           <h2 className="text-center text-3xl mt-5">Login with Connection ID</h2>
           <p className="text-left mt-4 font-medium text-gray-500">
             Unique Connection ID of the specific SSO connection.<br></br>
-            Ideally, you would use this strategy only when you know the specific connection_id.
+            Ideally, you would use this strategy only when you know the specific connection id.
           </p>
           <div className="mt-3 mx-auto w-full max-w-sm">
             <div className="bg-white py-6 px-6 rounded">
-              <form className="space-y-6" onSubmit={loginViaConnectionId}>
+              <form className="space-y-6" onSubmit={initiateAuth}>
                 <div>
-                  <label htmlFor="connection_id" className="block text-sm text-gray-600">
+                  <label htmlFor="connectionId" className="block text-sm text-gray-600">
                     Connection ID
                   </label>
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="connection_id"
-                      id="connection_id"
+                      name="connectionId"
+                      id="connectionId"
                       placeholder="conn_12434243"
                       className="text-black block w-full border border-gray-300 rounded placeholder-gray-400 focus:outline-none focus:ring-indigo-500"
-                      value={state.connection_id}
+                      value={state.connectionId}
                       onChange={handleChange}
                       required
                     />
@@ -126,7 +112,7 @@ const Login: NextPage = () => {
           </p>
           <div className="mt-3 mx-auto w-full max-w-sm">
             <div className="bg-white py-6 px-6 rounded">
-              <form className="space-y-6" onSubmit={loginViaDomain}>
+              <form className="space-y-6" onSubmit={initiateAuth}>
                 <div>
                   <label htmlFor="email" className="block text-sm text-gray-600">
                     Work Email

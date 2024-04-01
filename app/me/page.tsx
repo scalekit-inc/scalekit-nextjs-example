@@ -1,10 +1,18 @@
+import { getUser, logOutUser } from '@/service/auth';
 import type { NextPage } from "next";
 import Link from "next/link";
+import { redirect } from 'next/navigation';
 import Container from "../../components/Container";
-import { getUser } from '@/service/auth';
 
 const Me: NextPage = async () => {
   const { user } = await getUser();
+
+  const logout = async () => {
+    'use server'
+    await logOutUser();
+    redirect('/login')
+  }
+
   return (
     <Container title="Me">
       {!user ?
@@ -24,7 +32,9 @@ const Me: NextPage = async () => {
           <h3 className="text-2xl">Your Email: {user.email}</h3>
           {user.username && <h3 className="text-2xl">Your Username: {user.username}</h3>}
           <hr></hr>
-          <a href="/logout">Logout</a>
+          <form action={logout}>
+            <button type="submit">Logout</button>
+          </form>
         </div>
       }
     </Container>
