@@ -7,13 +7,12 @@ type Option = {
   connectionId?: string
 }
 export async function getAuthorizationUrl(option: Option) {
-  const { email, ...rest } = option;
+  const { connectionId } = option;
 
   return scalekit.getAuthorizationUrl(
     process.env.AUTH_REDIRECT_URI!,
     {
-      domainHint: email,
-      ...rest
+      connectionId: connectionId ? connectionId : process.env.AUTH_CONNECTION_ID!
     }
   );
 }

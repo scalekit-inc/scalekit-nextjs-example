@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@scalekit/node": "github:scalekit-inc/scalekit-node",
+    "@scalekit-sdk/node": "github:scalekit-inc/scalekit-sdk-node",
     "classnames": "^2.5.1",
     "next": "14.1.4",
     "react": "^18",

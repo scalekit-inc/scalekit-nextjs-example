@@ -1,4 +1,4 @@
-import { Scalekit, User } from "@scalekit/node";
+import { Scalekit, User } from "@scalekit-sdk/node";
 import { cookies } from 'next/headers';
 
 export const scalekit = new Scalekit(
