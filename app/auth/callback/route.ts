@@ -10,7 +10,16 @@ export async function GET(request: NextRequest) {
       message: "Invalid request"
     })
   }
+  const state = request.cookies.get("state")?.value;
   try {
+    // Validate state to prevent CSRF attacks
+    if (state !== request.nextUrl.searchParams.get("state")) {
+      return NextResponse.json({
+        success: false,
+        message: "Invalid request"
+      })
+    }
+    request.cookies.delete("state");
     const { user, accessToken } = await scalekit.authenticateWithCode({
       redirectUri: process.env.AUTH_REDIRECT_URI!,
       code: code
