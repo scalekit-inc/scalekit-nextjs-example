@@ -28,7 +28,7 @@ git clone https://github.com/scalekit-inc/scalekit-next-example.git
 ```
 
 ```sh
-# Install scalekit-express-example dependencies
+# Install dependencies
 npm install
 ```
 
@@ -52,4 +52,4 @@ Open http://localhost:3000 with your preferred browser
 
 ## API Reference
 
-See the [Scalekit API docs](https://docs.scalekit.com/apis) for more information about the API and authentication.
+See the [Scalekit API docs](https://docs.scalekit.com/apis) for more information about the API and authentication. 
