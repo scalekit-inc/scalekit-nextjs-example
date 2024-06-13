@@ -24,7 +24,7 @@ This is an example Next.js app that demonstrates how to use the Scalekit Node SD
 
 ```sh
 # Clone the repository
-git clone --recursive https://github.com/scalekit-inc/scalekit-express-example.git
+git clone https://github.com/scalekit-inc/scalekit-next-example.git
 ```
 
 ```sh
