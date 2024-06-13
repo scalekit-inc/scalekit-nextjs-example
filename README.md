@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <a href="https://scalekit.com" target="_blank" rel="noopener noreferrer">
     <picture>
       <img src="https://cdn.scalekit.cloud/v1/scalekit-logo-dark.svg" height="64">
@@ -6,16 +6,18 @@
   </a>
   <br/>
 </p>
-<h1 align="center">
-  Scalekit Next Example App
+<h1 align="left">
+  Next.js Example App
 </h1>
-<h4 align="center">
-Scalekit helps you ship Enterprise Auth in days.
 
-This is an example Next.js app that demonstrates how to use the Scalekit Node SDK to integrate Scalekit with your Next.js applications.
-</h4>
+<a href="https://scalekit.com" target="_blank" rel="noopener noreferrer">Scalekit</a> is an Enterprise Authentication Platform purpose built for B2B applications. This Go SDK helps implement Enterprise Capabilities like Single Sign-on via SAML or OIDC in your Golang applications within a few hours.
 
-## Getting Started
+<div>
+📚 <a target="_blank" href="https://docs.scalekit.com">Documentation</a> - 🚀 <a target="_blank" href="https://docs.scalekit.com">Quick-start Guide</a> - 💻 <a target="_blank" href="https://docs.scalekit.com/apis">API Reference</a>
+</div>
+<hr />
+
+## Pre-requisites
 
 1. [Sign up](https://scalekit.com) for a Scalekit account.
 2. Get your `env_url`, `client_id` and `client_secret` from the Scalekit dashboard.
